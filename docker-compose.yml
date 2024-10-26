@@ -73,7 +73,7 @@ services:
       SETTING_MEMCACHED_LOCATION: "memcached:11211"
       SETTING_RABBITMQ_HOST: "rabbitmq"
       SETTING_REDIS_HOST: "redis"
-      SECRETS_email_password: '${SERVICE_PASSWORD_64_EMAIL}'
+      SECRETS_email_password: '${EMAIL_HOST_PASSWORD}'
       # These should match RABBITMQ_DEFAULT_PASS, POSTGRES_PASSWORD,
       # MEMCACHED_PASSWORD, and REDIS_PASSWORD above.
       SECRETS_rabbitmq_password: '${SERVICE_PASSWORD_64_RABBITMQ}'
