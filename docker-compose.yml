@@ -1,3 +1,6 @@
+# Info for usage behind reverse proxy
+# https://github.com/zulip/docker-zulip/wiki/Proxying-via-nginx-on-host-machine
+
 services:
   database:
     image: "zulip/zulip-postgresql:14"
@@ -98,7 +101,7 @@ services:
       # comma-separated set of IP addresses to trust here.
       LOADBALANCER_IPS: '${DOCKER_IP_NETWORK}'
     volumes:
-      - "zulip:/data:rw"
+      - "/data/zulip:zulip:/data:rw"
     ulimits:
       nofile:
         soft: 1000000
