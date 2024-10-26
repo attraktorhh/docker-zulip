@@ -78,7 +78,7 @@ services:
       # MEMCACHED_PASSWORD, and REDIS_PASSWORD above.
       SECRETS_rabbitmq_password: '${SERVICE_PASSWORD_64_RABBITMQ}'
       SECRETS_postgres_password: '${SERVICE_PASSWORD_64_POSTGRES}'
-      SECRETS_memcached_password: '${SERVICE_PASSWORD_64:MEMCACHED}'
+      SECRETS_memcached_password: '${SERVICE_PASSWORD_64_MEMCACHED}'
       SECRETS_redis_password: '${SERVICE_PASSWORD_64_REDIS}'
       SECRETS_secret_key: '${SERVICE_PASSWORD_64_SECRET_KEY}'
       SETTING_EXTERNAL_HOST: '${SERVICE_FQDN_ZULIP}'
