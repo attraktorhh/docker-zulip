@@ -72,6 +72,7 @@ services:
       SETTING_MEMCACHED_LOCATION: "memcached:11211"
       SETTING_RABBITMQ_HOST: "rabbitmq"
       SETTING_REDIS_HOST: "redis"
+      DISABLE_HTTPS: true
       SECRETS_email_password: '${EMAIL_HOST_PASSWORD}'
       # These should match RABBITMQ_DEFAULT_PASS, POSTGRES_PASSWORD,
       # MEMCACHED_PASSWORD, and REDIS_PASSWORD above.
@@ -95,7 +96,7 @@ services:
 
       # If you're using a reverse proxy, you'll want to provide the
       # comma-separated set of IP addresses to trust here.
-      LOADBALANCER_IPS: '${LOADBALANCER_IPS}'
+      LOADBALANCER_IPS: '${DOCKER_IP_NETWORK}'
     volumes:
       - "zulip:/data:rw"
     ulimits:
