@@ -92,7 +92,8 @@ services:
       # It seems that the email server needs to use ssl or tls and can't be used without it
       SETTING_EMAIL_USE_SSL: '${EMAIL_USE_SSL}'
       SETTING_EMAIL_USE_TLS: '${EMAIL_USE_TLS}'
-      ZULIP_AUTH_BACKENDS: "EmailAuthBackend"
+      #ZULIP_AUTH_BACKENDS: "EmailAuthBackend"
+      ZULIP_AUTH_BACKENDS: "ZulipLDAPAuthBackend"
       # Uncomment this when configuring the mobile push notifications service
       # SETTING_ZULIP_SERVICE_PUSH_NOTIFICATIONS: "True"
       # SETTING_ZULIP_SERVICE_SUBMIT_USAGE_STATISTICS: "True"
