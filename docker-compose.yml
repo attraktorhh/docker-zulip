@@ -103,7 +103,8 @@ services:
       MANUAL_CONFIGURATION: "True"
       LINK_SETTINGS_TO_DATA: "True"
     volumes:
-      - "/data/zulip:/data:rw"
+      - "zulip:/data:rw"
+      - "/data/zulip_config://opt/docker/zulip/zulip/settings/etc-zulip/:rw"
     ulimits:
       nofile:
         soft: 1000000
