@@ -101,7 +101,7 @@ services:
       # comma-separated set of IP addresses to trust here.
       LOADBALANCER_IPS: '${DOCKER_IP_NETWORK}'
     volumes:
-      - "/data/zulip:zulip:/data:rw"
+      - "/data/zulip:/data:rw"
     ulimits:
       nofile:
         soft: 1000000
