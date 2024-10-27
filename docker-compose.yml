@@ -11,7 +11,7 @@ services:
       # Note that you need to do a manual `ALTER ROLE` query if you
       # change this on a system after booting the postgres container
       # the first time on a host.  Instructions are available in README.md.
-      POSTGRES_PASSWORD: '${SERVICE_PASSWORD_64_POSTGRES}'
+      POSTGRES_PASSWORD: 'my-postgres-password'
     volumes:
       - "postgresql-14:/var/lib/postgresql/data:rw"
   memcached:
@@ -28,13 +28,13 @@ services:
     environment:
       SASL_CONF_PATH: "/home/memcache/memcached.conf"
       MEMCACHED_SASL_PWDB: "/home/memcache/memcached-sasl-db"
-      MEMCACHED_PASSWORD: '${SERVICE_PASSWORD_64_MEMCACHED}'
+      MEMCACHED_PASSWORD: 'my-memcached-password'
   rabbitmq:
     image: "rabbitmq:3.12.14"
     restart: unless-stopped
     environment:
       RABBITMQ_DEFAULT_USER: "zulip"
-      RABBITMQ_DEFAULT_PASS: '${SERVICE_PASSWORD_64_RABBITMQ}'
+      RABBITMQ_DEFAULT_PASS: 'my-rabbitmq-password'
     volumes:
       - "rabbitmq:/var/lib/rabbitmq:rw"
   redis:
@@ -47,7 +47,7 @@ services:
         echo "requirepass '$$REDIS_PASSWORD'" > /etc/redis.conf
         exec redis-server /etc/redis.conf
     environment:
-      REDIS_PASSWORD: '${SERVICE_PASSWORD_64_REDIS}'
+      REDIS_PASSWORD: 'my-redis-password'
     volumes:
       - "redis:/data:rw"
   zulip:
@@ -76,14 +76,14 @@ services:
       SETTING_RABBITMQ_HOST: "rabbitmq"
       SETTING_REDIS_HOST: "redis"
       DISABLE_HTTPS: true
-      SECRETS_email_password: '${EMAIL_HOST_PASSWORD}'
+      SECRETS_email_password: 'my-email-password'
       # These should match RABBITMQ_DEFAULT_PASS, POSTGRES_PASSWORD,
       # MEMCACHED_PASSWORD, and REDIS_PASSWORD above.
-      SECRETS_rabbitmq_password: '${SERVICE_PASSWORD_64_RABBITMQ}'
-      SECRETS_postgres_password: '${SERVICE_PASSWORD_64_POSTGRES}'
-      SECRETS_memcached_password: '${SERVICE_PASSWORD_64_MEMCACHED}'
-      SECRETS_redis_password: '${SERVICE_PASSWORD_64_REDIS}'
-      SECRETS_secret_key: '${SERVICE_PASSWORD_64_SECRET_KEY}'
+      SECRETS_rabbitmq_password: 'my-rabbitmq-password'
+      SECRETS_postgres_password: 'my-postgres-password'
+      SECRETS_memcached_password: 'my-memcached-password'
+      SECRETS_redis_password: 'my-redis-password'
+      SECRETS_secret_key: 'my-secret-key'
       SETTING_EXTERNAL_HOST: '${EXTERNAL_HOST}'
       SETTING_ZULIP_ADMINISTRATOR: '${ADMINISTRATOR_EMAIL}'
       SETTING_EMAIL_HOST: '${EMAIL_HOST}' # e.g. smtp.example.com
