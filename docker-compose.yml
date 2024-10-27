@@ -104,7 +104,7 @@ services:
       LINK_SETTINGS_TO_DATA: "True"
     volumes:
       - "zulip:/data:rw"
-      - "/data/zulip_config://opt/docker/zulip/zulip/settings/etc-zulip/:rw"
+      - "/data/zulip_config:/opt/docker/zulip/zulip/settings/etc-zulip/:rw"
     ulimits:
       nofile:
         soft: 1000000
